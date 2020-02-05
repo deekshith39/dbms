@@ -39,3 +39,30 @@ insert into owns values(&driver_id,'&regno');
 select * from owns;
 insert into participated values(&driver_id,'&regno','&report_no',&damage_amt);
 select * from participated;
+UPDATE PARTICIPATED
+
+SET DAMAGE_AMT=25000
+
+WHERE REPORT_NO =12 AND REGNO='KA04Q2301';
+
+
+
+SELECT COUNT(*) FROM ACCIDENT
+
+WHERE ADATE LIKE '__-___-02';
+
+
+
+SELECT COUNT(A.REPORT_NO)
+
+FROM ACCIDENT A, PARTICIPATED P, CAR C
+
+WHERE A.REPORT_NO=P.REPORT_NO
+
+AND
+
+P.REGNO=C.REGNO
+
+AND
+
+C.MODEL='MARUTHI-DX';
