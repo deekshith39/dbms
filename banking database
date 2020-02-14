@@ -43,8 +43,13 @@ foreign key(loannumber) references loan(loannumber));
 insert into branch values('&branchname','&branchcity',&assets);
 insert into account values('&accno','&branchname','&balance');
 insert into customer values('&customername','&customerstreet','&city');
-select * from customer;
+
 insert into depositor values('&customername','&accno');
 insert into loan values('&loannumber','&branchname','&amount');
 insert into borrower values('&customername','&loannumber');
 select * from borrower;
+select * from customer;
+select * from loan;
+select * from depositor;
+select * from account;
+select * from branch;
