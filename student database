@@ -46,3 +46,5 @@ select * from course;
 select * from text;
 select * from adoption;
 select * from enroll;
+select b.courseid,t.isbn,t.book_title from adoption b,text t,course c where c.courseid=b.courseid and c.deptid='CSE' and b.isbn=t.isbn and c.courseid in (select courseid from (select courseid from adoption group by courseid,isbn) group by courseid having count(*)>=2) order by t.book_title;
+ select distinct c.deptid from course c where not exists ((select b.isbn from adoption b,course c1 where c1.courseid=b.courseid and c1.deptid=c.deptid) minus (select isbn from text where publisher='PHI')) and exists (select b.isbn from adoption b,course c1 where c1.courseid=b.courseid and c1.deptid=c.deptid);
